@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toggle"><em>/toggle Facts</em>를 사용하여 이 메시지를 토글할 수 있습니다.</string>
+    <string name="report">규칙을 위반하는 사람을 발견하셨나요? <em>/report</em>를 사용하여 <em color="red">관리자</em>에게 알려주세요.</string>
+    <string name="discord">아케이드 디스코드에 참여하세요! <a href="https://discord.gg/kNEf8ac"/></string>
+    <string name="opensource">아케이드에서 사용하는 플러그인은 오픈 소스이며 다음 주소를 통해 포크할 수 있습니다. <a href="https://github.com/ChemistryX/arcade"/></string>
+    <string name="guides">게임을 어떻게 플레이하는지 모르시겠나요? 그렇다면 다음 주소에서 가이드를 볼 수 있습니다. <a href="https://arcade.chemistryx.me/guides"/></string>
+    <string name="rules">게임을 플레이하실 때는 항상 규칙을 숙지해주세요. 규칙은 다음 주소에서 보실 수 있습니다. <a href="https://arcade.chemistryx.me/rules"/></string>
+</resources>

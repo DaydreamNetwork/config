@@ -1,0 +1,77 @@
+<config>
+    <!--
+    Broadcasts (announcements)
+    ==========================
+
+    The <broadcasts> tag contains a list of <schedule> tags, each of which broadcasts a
+    randomly chosen message on a fixed time interval. Multiple schedules will run concurrently.
+
+    A schedule can be limited to specific servers or game types:
+
+        <schedule>
+            <role>lobby/pgm</role>                      Lobby/PGM
+            <network>public/tournament</network>        Tournament related vs everything else
+            <realm>...</realm>                          Realm (see below)
+            <game>arcade/mini/ranked</game>             Queue game ID
+            <gamemode>ctw/blitz/etc...</gamemode>       PGM Gamemode - see https://docs.oc.tc/modules/main#gamemode
+        </schedule>
+
+    Realms are arbitrary tags defined by admins in the Data repo. A server can have many realms.
+    Here are some examples of currently defined realms:
+
+        public          Publicly listed servers
+        practice        Tourament practice servers
+        maptest         Map development servers (including residence and build)
+        residence       Residence servers
+        build           Builder server
+        media           Media server - used by guest streamers
+        party           Party server - used for special public events
+
+    Under each <schedule> is a list of <messages> tags, each of which refers to a localized file
+    containing a list of messages. The lists are effectively combined into one big list that the
+    schedule chooses messages from. The path of message files is relative to the localized/broadcasts
+    folder in this repo, which is automatically mirrored to /broadcasts on Crowdin.
+
+    Each <messages> tag must also have a prefix="..." attribute with one of the following values:
+
+        Prefix      Appearance      /toggle     Purpose
+        ==============================================================================
+        tip         [Tip]           Tips        Gameplay tips
+        news        [News]          News        Current events, transient stuff
+        alert       [Alert]         News        More important news
+        info        [Info]          Facts       Informative, educational
+        fact        [Fact]          Facts       Interesting things about the network
+        chat        [Chat]          Random      Jokes, sayings, conversation starters
+
+    The message file contains a single <resources> tag, which contains a <string> tag for each message.
+    Each <string> must have a name="..." attribute with a unique identifier. Crowdin uses this name to
+    keep track of the string when the file changes. The name must be unique within the file, but it does
+    not have to be unique across files.
+
+    A <string> tag can contain various inline formatting tags:
+
+        <b>...</b>                          Bold
+        <i>...</i>                          Italics
+        <em>...</em>                        Emphasis (different color)
+        <a href="...">...</a>               Link (leave tag empty to show the URL itself)
+        <a type="home">...</a>              Link to our own website
+        <a type="home" href="...">...</a>   Link to page on our website (e.g. href="/forums")
+        <a type="user">...</a>              Link to viewer's profile
+        <a type="user" href="...">...</a>   Link to path relative to profile (not current useful)
+
+    These tags can also have any of the following attributes:
+
+        bold="true/false"
+        italic="true/false"
+        underline="true/false"
+        color="red/blue/light blue/etc"
+
+    -->
+    <broadcasts>
+        <schedule interval="2m">
+            <realm>global</realm>
+            <messages prefix="tip" path="tips.xml"/>
+            <messages prefix="info" path="info.xml"/>
+        </schedule>
+    </broadcasts>
+</config>
